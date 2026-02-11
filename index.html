@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Huabin Wu - Hardware Engineer | RTL Design | Computer Architecture">
+    <title>Huabin Wu @ SBU</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fira Code Font for that authentic IDE feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="terminal">
+        <header>
+            <div class="prompt">user@host:~/huabin_wu $ <span class="command">./display_profile.sh</span></div>
+        </header>
+
+        <main>
+            <section id="hero">
+                <h1>Huabin Wu</h1>
+                <p class="subtitle">&gt; Computer Engineering Senior @ Stony Brook University (Class of 2026)</p>
+                <p class="status">&gt; Status: <span class="blink">Seeking Full-time Roles in RTL Design & Architecture</span></p>
+                
+                <div class="contacts">
+                    <a href="mailto:huabin.wu@stonybrook.edu">[Email]</a>
+                    <a href="#">[LinkedIn]</a>
+                    <a href="#">[GitHub]</a>
+                </div>
+            </section>
+
+            <section id="skills">
+                <div class="prompt">user@host:~/huabin_wu $ <span class="command">cat skills.json</span></div>
+                <div class="json-output">
+{
+  "core": ["RTL Design", "Computer Architecture", "SystemVerilog/Verilog", "UVM Verification"],
+  "embedded": ["C/C++", "Assembly (MIPS/RISC-V/x86)", "FPGA (Xilinx/Intel)"],
+  "tools": ["Vivado", "ModelSim", "Quartus", "Git", "Linux"]
+}
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="prompt">user@host:~/huabin_wu $ <span class="command">ls -la ./projects/</span></div>
+                
+                <div class="project-item">
+                    <span class="permissions">-rwxr-xr-x</span> <span class="date">2025</span> <span class="name">IBM_Sony_Cell_SPU_Clone</span>
+                    <p class="desc">
+                        // Full SystemVerilog implementation of the Cell Broadband Engine Synergistic Processing Unit.
+                        <br>// Features: 128-bit SIMD, Custom ISA, 4-stage pipeline, Forwarding Unit.
+                    </p>
+                </div>
+
+                <div class="project-item">
+                    <span class="permissions">-rwxr-xr-x</span> <span class="date">2024</span> <span class="name">Neuromorphic_IC_Design</span>
+                    <p class="desc">
+                        // Low-Power Integrated Circuit for Spiking Neural Networks.
+                        <br>// Focus: Energy efficiency, asynchronous logic, mixed-signal verification.
+                    </p>
+                </div>
+
+                <div class="project-item">
+                    <span class="permissions">-rwxr-xr-x</span> <span class="date">2024</span> <span class="name">Hardware_Conv2D_Accelerator</span>
+                    <p class="desc">
+                        // Parameterized Hardware Accelerator for 2D Convolutions.
+                        <br>// Optimized for throughput and area efficiency on FPGA targets.
+                    </p>
+                </div>
+            </section>
+
+            <section id="education">
+                <div class="prompt">user@host:~/huabin_wu $ <span class="command">grep "Degree" education.txt</span></div>
+                <p class="output">Bachelor of Engineering in Computer Engineering</p>
+                <div class="prompt">user@host:~/huabin_wu $ <span class="command">grep "Relevant_Coursework" education.txt</span></div>
+                <p class="output">Digital Systems Design, Computer Architecture, VLSI Design, Embedded Systems, Operating Systems</p>
+            </section>
+
+        </main>
+        
+        <footer>
+            <div class="cursor-line">user@host:~/huabin_wu $ <span class="cursor">█</span></div>
+        </footer>
+    </div>
+</body>
+</html>
