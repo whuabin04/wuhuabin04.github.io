@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dual-Issue IBM/Sony Cell Synergistic Processor Unit (SPU) Implementation">
+    <title>Dual-Issue Cell SPU - Huabin Wu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <h1>Dual-Issue Sony Cell Synergistic Processor Unit (SPU)</h1>
+        <p class="subtitle">Superscalar RISC Core Implementation in SystemVerilog</p>
+    </header>
+
+    <main>
+        
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>
+                This project involves the architecture and RTL implementation of a 2-way superscalar RISC core based on the <strong>IBM/Sony Cell Broadband Engine SPU ISA</strong>. 
+                Designed for high-performance computing, the core features a 128-bit SIMD data path and a deep pipeline structure to maximize throughput.
+            </p>
+            
+            <div class="hero-stat">
+                <div class="stat-item"><h3>128-bit</h3><p>SIMD Data Path</p></div>
+                <div class="stat-item"><h3>2-Way</h3><p>Superscalar</p></div>
+                <div class="stat-item"><h3>11-Stage</h3><p>Pipeline</p></div>
+            </div>
+        </section>
+
+        <section id="architecture">
+            <h2>Microarchitecture</h2>
+            <p>
+                The processor implements a heterogeneous dual-issue pipeline where instructions are dispatched to either the Even (Arithmetic/Logic) or Odd (Load/Store/Permute) pipe.
+            </p>
+            <ul>
+                <li><strong>Pipeline Depth:</strong> 11 stages to support high frequency operation.</li>
+                <li><strong>Register File:</strong> 128-entry unified register file (128-bit wide) with 6 read ports and 2 write ports.</li>
+                <li><strong>Local Store:</strong> 32KB high-speed local memory for instruction and data storage.</li>
+                <li><strong>Hazard Handling:</strong> Advanced hazard detection logic handles dual-instruction dependency checking and extensive operand forwarding networks minimize stalls.</li>
+            </ul>
+            
+            <figure>
+                <img src="spu-block-diagram.png" alt="High-level block diagram of the SPU">
+                <figcaption>
+                    Figure 1: High-level block diagram of the SPU showing the Even/Odd pipes, Register File, and Local Store interface.
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="spu-pipeline-diagram.png" alt="Detailed SPU Pipeline Stages">
+                <figcaption>
+                    Figure 2: Detailed view of the 11-stage pipeline, including instruction fetch, issue, execution units, and result forwarding paths.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="tools">
+            <h2>Toolchain & Verification</h2>
+            <p>
+                To validate the hardware implementation, a custom software toolchain was developed.
+            </p>
+            <ul>
+                <li><strong>Custom Assembler:</strong> Developed in C++ to map SPU Assembly mnemonics to machine code.</li>
+                <li><strong>Simulation:</strong> Full assembly programs are simulated in <strong>Siemens QuestaSim</strong> to verify architectural correctness.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2026 Huabin Wu.
+    </footer>
+
+</body>
+</html>
