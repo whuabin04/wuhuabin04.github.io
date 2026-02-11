@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Parameterized Hardware Accelerator for 2D Convolution">
+    <title>Hardware Conv2D Accelerator - Huabin Wu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reusing project page styles */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+        }
+        
+        .hero-stat {
+            display: flex;
+            gap: 40px;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-item h3 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        figure {
+            margin: 40px 0;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            background: #fff;
+        }
+
+        figure img {
+            width: 100%;
+            height: auto;
+            background-color: #f0f0f0;
+            display: block;
+            min-height: 300px;
+            object-fit: contain;
+        }
+
+        figcaption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            font-style: italic;
+            text-align: center;
+        }
+
+        .diagram-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            border: 2px dashed #ddd;
+            flex-direction: column;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background-color: #f6f8fa;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #f6f8fa;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <h1>Parameterized Hardware Accelerator for 2D Convolution</h1>
+        <p class="subtitle">High-Performance SystemVerilog IP Core with AXI4-Stream Interface</p>
+    </header>
+
+    <main>
+        
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>
+                A high-performance, parameterized hardware accelerator for 2D image convolution designed in <strong>SystemVerilog</strong>. 
+                This IP core features a fully pipelined Multiply-Accumulate (MAC) architecture and <strong>AXI4-Stream</strong> interfaces, 
+                optimized for high-throughput image processing tasks in FPGAs or ASICs.
+            </p>
+            
+            <div class="hero-stat">
+                <div class="stat-item">
+                    <h3>855 MHz</h3>
+                    <p>ASIC Frequency</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3-Stage</h3>
+                    <p>Pipelined MAC</p>
+                </div>
+                <div class="stat-item">
+                    <h3>AXI4</h3>
+                    <p>Stream Interface</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li><strong>High Frequency:</strong> Synthesized to <strong>855 MHz</strong> on Nangate 45nm Open Cell Library (ASIC).</li>
+                <li><strong>Fully Parameterized:</strong> Supports configurable Input Bit-Width, Kernel Size (3x3, 5x5, etc.), and Image Dimensions.</li>
+                <li><strong>Pipelined Architecture:</strong> 3-stage pipelined MAC unit with hazard-free execution.</li>
+                <li><strong>Standard Interface:</strong> AXI4-Stream compliant input/output with back-pressure handling.</li>
+            </ul>
+        </section>
+
+        <section id="architecture">
+            <h2>Architecture</h2>
+            <figure>
+                <img src="conv2d-block-diagram.png" alt="High-level block diagram of the Convolution Accelerator">
+                <figcaption>
+                    Figure 1: High-level block diagram of the Convolution Accelerator showing Data Buffers, MAC Units, and AXI Controllers.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="verification">
+            <h2>Verification (DPI-C)</h2>
+            <p>
+                The design was verified using a <strong>Constrained-Random</strong> testbench in Questasim.
+            </p>
+            <ul>
+                <li><strong>DPI-C Co-Simulation:</strong> A C++ Reference model is connected via SystemVerilog DPI to validate RTL output against software-computed expected values.</li>
+                <li><strong>Coverage:</strong> Functional coverage focuses on FIFO full/empty states and AXI handshake randomization.</li>
+            </ul>
+        </section>
+
+        <section id="usage">
+            <h2>Usage Example</h2>
+            <pre><code>// Example Instantiation
+Conv #(
+    .INW(18),
+    .R(9),
+    .C(8),
+    .MAXK(5),
+) u_conv_accelerator (
+    .clk(clk),
+    .reset(reset),
+    .INPUT_TDATA(),
+    .INPUT_TVALID(),
+    .INPUT_TUSER(),
+    .INPUT_TREADY(),
+    
+    .OUTPUT_TDATA(),
+    .OUTPUT_TVALID(),
+    .OUTPUT_TREADY()
+);</code></pre>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2025 Huabin Wu & Ryan Lin. All Rights Reserved. For demonstration purposes only.
+    </footer>
+
+</body>
+</html>

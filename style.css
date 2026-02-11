@@ -1,146 +1,173 @@
 :root {
-    --bg-color: #0d1117;
-    --text-color: #c9d1d9;
-    --green-accent: #238636;
-    --blue-accent: #58a6ff;
-    --yellow-accent: #d29922;
-    --cmd-color: #7ee787;
-    --cursor-color: #c9d1d9;
-    --font-stack: 'Fira Code', 'Courier New', Courier, monospace;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --accent-color: #0056b3; /* Professional Blue */
+    --secondary-text: #666666;
+    --border-color: #eaeaea;
+    --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-stack);
-    font-size: 16px;
     line-height: 1.6;
-    padding: 20px;
-    min-height: 100vh;
+    padding: 60px 20px;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.terminal {
-    max-width: 900px;
-    margin: 0 auto;
-    padding-bottom: 50px;
+/* Typography */
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #111;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+p {
+    margin-bottom: 1rem;
 }
 
 a {
-    color: var(--blue-accent);
+    color: var(--accent-color);
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 a:hover {
+    color: #003d80;
     text-decoration: underline;
 }
 
-/* Typography & Layout */
-section {
+/* Header & Contacts */
+header {
     margin-bottom: 40px;
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: var(--cmd-color);
-    margin-bottom: 10px;
-}
-
-/* Terminal Components */
-.prompt {
-    color: var(--blue-accent);
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-.command {
-    color: var(--text-color);
-    font-weight: normal;
-}
-
-.output, .json-output, .desc {
-    margin-left: 20px;
-    color: var(--text-color);
-    white-space: pre-wrap;
-}
-
-.json-output {
-    color: var(--yellow-accent);
-}
-
 .subtitle {
-    font-size: 1.2rem;
-    color: var(--text-color);
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+    margin-bottom: 1.5rem;
 }
 
-.status {
-    color: var(--green-accent);
-    margin-bottom: 20px;
+.contacts {
+    display: flex;
+    gap: 20px;
+    font-size: 0.95rem;
 }
 
 .contacts a {
-    margin-right: 15px;
-    font-weight: bold;
-}
-
-/* Project List Styling */
-.project-item {
-    margin-bottom: 20px;
-    margin-left: 20px;
-}
-
-.permissions {
-    color: var(--blue-accent);
-}
-
-.date {
     color: var(--text-color);
-    margin: 0 10px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.name {
-    color: var(--cmd-color);
-    font-weight: bold;
+.contacts a:hover {
+    border-bottom-color: var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
 }
 
-.desc {
-    color: #8b949e; /* Dimmer for comments */
-    margin-top: 5px;
-    font-style: italic;
+/* Resume Download Button */
+.download-btn {
+    display: inline-block;
+    background-color: var(--text-color);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
-/* Animations */
-.blink {
-    animation: blinker 1.5s linear infinite;
+.download-btn:hover {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
 }
 
-.cursor {
-    animation: blinker 1s step-end infinite;
+/* Skills Grid */
+.skills-list {
+    list-style: none;
+    padding: 0;
 }
 
-@keyframes blinker {
-    50% {
-        opacity: 0;
-    }
+.skill-row {
+    display: flex;
+    margin-bottom: 12px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-    body {
-        font-size: 14px;
-        padding: 10px;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    .prompt {
-        word-break: break-all;
-    }
+.skill-label {
+    width: 140px;
+    font-weight: 600;
+    color: #111;
+    flex-shrink: 0;
+}
+
+.skill-value {
+    color: var(--secondary-text);
+}
+
+/* Projects */
+.project-item {
+    margin-bottom: 35px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+}
+
+.project-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #111;
+}
+
+.project-year {
+    font-size: 0.85rem;
+    color: #999;
+    font-variant-numeric: tabular-nums;
+}
+
+.project-desc {
+    color: var(--secondary-text);
+    font-size: 0.95rem;
+}
+
+/* Education */
+.edu-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.degree {
+    font-weight: 600;
+}
+
+.school {
+    color: var(--secondary-text);
+}
+
+/* Footer */
+footer {
+    margin-top: 80px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    font-size: 0.85rem;
+    color: #aaa;
+    text-align: center;
 }

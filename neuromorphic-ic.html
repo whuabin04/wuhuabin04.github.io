@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NeuRRAM: A Compute-in-Memory Chip based on Resistive RAM">
+    <title>Neuromorphic IC Design - Huabin Wu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for the project page */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+        }
+        
+        .hero-stat {
+            display: flex;
+            gap: 40px;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-item h3 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        figure {
+            margin: 40px 0;
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            background: #fff;
+        }
+
+        figure img {
+            width: 100%;
+            height: auto;
+            background-color: #f0f0f0;
+            display: block;
+            min-height: 300px; /* Placeholder height */
+            object-fit: contain;
+        }
+
+        figcaption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            font-style: italic;
+            text-align: center;
+        }
+
+        .diagram-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            border: 2px dashed #ddd;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+        <img src="neuromorphic_design-logo.png" alt="Neuricell Logo" style="display: block; max-width: 300px; margin: 20px 0;">
+        <h1>Low-Power IC for Neuromorphic Computing</h1>
+        <p class="subtitle">A 48-Core RRAM-CIM Hardware for Edge AI</p>
+    </header>
+
+    <main>
+        
+        <section id="overview">
+            <h2>Project Overview</h2>
+            <p>
+                This project involves the design and verification of <strong>ReRAM</strong>, a compute-in-memory (CIM) chip based on Resistive Random-Access Memory (RRAM). 
+                The architecture addresses the "memory wall" bottleneck in edge AI by performing computation directly within memory arrays, eliminating power-hungry data movement.
+            </p>
+        </section>
+
+        <section id="architecture">
+            <h2>1. Architecture: Transposable Neurosynaptic Array (TNSA)</h2>
+            <p>
+                Conventional RRAM-CIM architectures are often limited to fixed dataflow directions. To enable versatility for diverse AI models (CNNs, LSTMs, RBMs), 
+                we implemented a <strong>Transposable Neurosynaptic Array (TNSA)</strong>.
+            </p>
+            <p>
+                The TNSA consists of 256x256 RRAM cells and 256 CMOS neuron circuits. Key innovations include:
+            </p>
+            <ul>
+                <li><strong>Dynamic Dataflow:</strong> Supports Forward (BL to SL), Backward (SL to BL), and Recurrent operations.</li>
+                <li><strong>Interleaved Layout:</strong> RRAM weights and CMOS neurons are physically interleaved to minimize routing overhead.</li>
+                <li><strong>Reconfigurability:</strong> Can be dynamically configured for Matrix-Vector Multiplication (MVM) in various directions with minimal area overhead.</li>
+            </ul>
+
+            <figure>
+                <img src="neuromorphic-architecture.png" alt="Transposable Neurosynaptic Array (TNSA) Architecture showing interleaved RRAM and CMOS neurons">
+                <figcaption>
+                    Figure 1: The Transposable Neurosynaptic Array (TNSA) architecture enabling forward, backward, and recurrent MVM dataflows. 
+                    (Source: Nature, Vol 608, 2022)
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="results">
+            <h2>2. Measured Results</h2>
+            <p>
+                The design was validated through software simulation using the <strong>SpikingJelly</strong> framework for Spiking Neural Networks (SNNs). We achieved high accuracy on keyword spotting tasks, demonstrating the effectiveness of our proposed architecture.
+            </p>
+            <ul>
+                <li><strong>Google Speech Command:</strong> 84.7% Accuracy (Simulation)</li>
+            </ul>
+
+            <figure>
+                <img src="neuromorphic-training-results.png" alt="Training curves showing Loss and Accuracy vs Epoch for the SNN model">
+                <figcaption>
+                    Figure 2: Training convergence of the Spiking Neural Network (SNN) model. Left: Loss vs. Epoch. Right: Accuracy vs. Epoch.
+                </figcaption>
+            </figure>
+
+            <div style="margin-top: 30px;">
+                <h3>Project Documentation</h3>
+                <p>For more details on the project objectives, background research, and proposed solution, please refer to the full project proposal:</p>
+                <a href="neuromorphic-proposal.pdf" class="download-btn" download>↓ Download Project Proposal (PDF)</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        &copy; 2026 Huabin Wu. Design based on "A compute-in-memory chip based on resistive random-access memory", Nature 2022.
+    </footer>
+
+</body>
+</html>
