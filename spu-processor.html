@@ -25,13 +25,13 @@
             
             <div class="hero-stat">
                 <div class="stat-item"><h3>128-bit</h3><p>SIMD Data Path</p></div>
-                <div class="stat-item"><h3>2-Way</h3><p>Superscalar</p></div>
+                <div class="stat-item"><h3>90</h3><p>Instructions</p></div>
                 <div class="stat-item"><h3>11-Stage</h3><p>Pipeline</p></div>
             </div>
         </section>
 
         <section id="architecture">
-            <h2>Microarchitecture</h2>
+            <h2>Architecture</h2>
             <p>
                 The processor implements a heterogeneous dual-issue pipeline where instructions are dispatched to either the Even (Arithmetic/Logic) or Odd (Load/Store/Permute) pipe.
             </p>
@@ -43,14 +43,14 @@
             </ul>
             
             <figure>
-                <img src="spu-block-diagram.png" alt="High-level block diagram of the SPU">
+                <img src="spu-block-diagram.png" alt="High-level block diagram of the SPU" class="small-diagram">
                 <figcaption>
                     Figure 1: High-level block diagram of the SPU showing the Even/Odd pipes, Register File, and Local Store interface.
                 </figcaption>
             </figure>
 
             <figure>
-                <img src="spu-pipeline-diagram.png" alt="Detailed SPU Pipeline Stages">
+                <img src="spu-pipeline-diagram.png" alt="Detailed SPU Pipeline Stages" class="small-diagram">
                 <figcaption>
                     Figure 2: Detailed view of the 11-stage pipeline, including instruction fetch, issue, execution units, and result forwarding paths.
                 </figcaption>

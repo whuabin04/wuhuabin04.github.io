@@ -287,6 +287,22 @@ figure img {
     opacity: 0.9;
 }
 
+figcaption {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 10px;
+}
+
+.small-diagram {
+    max-width: 75%;
+}
+
+.tall-diagram {
+    width: 150%;
+}
+
 code, pre {
     font-family: var(--font-mono);
     background: #1c1917;
