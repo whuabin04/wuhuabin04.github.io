@@ -80,13 +80,8 @@
                 we implemented a <strong>Transposable Neurosynaptic Array (TNSA)</strong>.
             </p>
             <p>
-                The TNSA consists of 256x256 RRAM cells and 256 CMOS neuron circuits. Key innovations include:
+                The TNSA consists of 256x256 RRAM cells (768 CMOS Neurons and 196,608 ReRAM cells total).
             </p>
-            <ul>
-                <li><strong>Dynamic Dataflow:</strong> Supports Forward (BL to SL), Backward (SL to BL), and Recurrent operations.</li>
-                <li><strong>Interleaved Layout:</strong> RRAM weights and CMOS neurons are physically interleaved to minimize routing overhead.</li>
-                <li><strong>Reconfigurability:</strong> Can be dynamically configured for Matrix-Vector Multiplication (MVM) in various directions with minimal area overhead.</li>
-            </ul>
 
             <figure>
                 <img src="assets/img/neuromorphic-architecture.png" alt="Transposable Neurosynaptic Array (TNSA) Architecture showing interleaved RRAM and CMOS neurons">
@@ -102,7 +97,7 @@
                 The design was validated through software simulation using the <strong>SpikingJelly</strong> framework for Spiking Neural Networks (SNNs). We achieved high accuracy on keyword spotting tasks, demonstrating the effectiveness of our proposed architecture.
             </p>
             <ul>
-                <li><strong>Google Speech Command:</strong> 84.7% Accuracy (Simulation)</li>
+                <li><strong>Google Speech Command:</strong> 83.12% Accuracy (8-Bit Quantized SNN Simulation)</li>
             </ul>
 
             <figure>
@@ -114,15 +109,15 @@
 
             <div style="margin-top: 30px;">
                 <h3>Project Documentation</h3>
-                <p>For more details on the project objectives, background research, and proposed solution, please refer to the full project proposal:</p>
-                <a href="assets/docs/neuromorphic-proposal.pdf" class="download-btn" download>↓ Download Project Proposal (PDF)</a>
+                <p>For more details on the project objectives, background research, and proposed solution, please refer to the full project report:</p>
+                <a href="assets/docs/neuromorphic-projectreport.pdf" class="download-btn" download>↓ Download Project Report (PDF)</a>
             </div>
         </section>
 
     </main>
 
     <footer>
-        &copy; 2026 Spencer Wu, Huabin Wu, Arhaam Hossain, Ryan Lin. Design based on "A compute-in-memory chip based on resistive random-access memory", Nature 2022.
+        &copy; 2026 Spencer Wu, Huabin Wu, Arhaam Hossain, Ryan Lin. Design inspiration based on "A compute-in-memory chip based on resistive random-access memory", Nature 2022.
     </footer>
 
 </body>

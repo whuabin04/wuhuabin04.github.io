@@ -24,30 +24,32 @@
                 This IP core features a fully pipelined Multiply-Accumulate (MAC) architecture and <strong>AXI4-Stream</strong> interfaces, 
                 optimized for high-throughput image processing tasks in FPGAs or ASICs.
             </p>
-            
-            <div class="hero-stat">
-                <div class="stat-item"><h3>855 MHz</h3><p>ASIC Frequency</p></div>
-                <div class="stat-item"><h3>3-Stage</h3><p>Pipelined MAC</p></div>
-                <div class="stat-item"><h3>AXI4</h3><p>Stream Interface</p></div>
-            </div>
         </section>
 
         <section id="features">
             <h2>Key Features</h2>
             <ul>
-                <li><strong>High Frequency:</strong> Synthesized to <strong>855 MHz</strong> on Nangate 45nm Open Cell Library (ASIC).</li>
+                <li><strong>Simulation Synthesis:</strong> Synthesized to <strong>855 MHz</strong> on Nangate 45nm Open Cell Library (ASIC).</li>
+                <li><strong>FPGA Synthesis:</strong> Synthesized to <strong>50 MHz</strong> on Minized SoC board.</li>
                 <li><strong>Fully Parameterized:</strong> Supports configurable Input Bit-Width, Kernel Size (3x3, 5x5, etc.), and Image Dimensions.</li>
-                <li><strong>Pipelined Architecture:</strong> 3-stage pipelined MAC unit with hazard-free execution.</li>
+                <li><strong>Pipelined Architecture:</strong> 3-stage pipelined MAC unit with 6-state FSM top-level controller.</li>
                 <li><strong>Standard Interface:</strong> AXI4-Stream compliant input/output with back-pressure handling.</li>
             </ul>
         </section>
 
         <section id="architecture">
-            <h2>Architecture</h2>
+            <h2>Structural Diagrams
+            </h2>
             <figure>
                 <img src="assets/img/conv2d-block-diagram.png" alt="High-level block diagram of the Convolution Accelerator" class="tall-diagram">
                 <figcaption>
                     Figure 1: High-level block diagram of the Convolution Accelerator showing Data Buffers, MAC Units, and AXI Controllers.
+                </figcaption>
+            </figure>
+            <figure>
+                <img src="assets/img/conv2d-zynq-block-diagram.png" alt="Vivado Block Diagram of the Zynq-based Convolution System" class="tall-diagram">
+                <figcaption>
+                    Figure 2: Vivado Block Diagram showing the software-hardware integration of the IP with the Zynq Processing System via AXI interconnects and DMA on MiniZed board.
                 </figcaption>
             </figure>
         </section>
@@ -58,7 +60,7 @@
                 The design was verified using a <strong>Constrained-Random</strong> testbench in Questasim.
             </p>
             <ul>
-                <li><strong>DPI-C Co-Simulation:</strong> A C++ Reference model is connected via SystemVerilog DPI to validate RTL output against software-computed expected values.</li>
+                <li><strong>DPI-C Co-Simulation:</strong> SystemVerilog DPI-C to invoke and validate RTL outputs against software-computed expected values in C.</li>
                 <li><strong>Coverage:</strong> Functional coverage focuses on FIFO full/empty states and AXI handshake randomization.</li>
             </ul>
         </section>
@@ -66,23 +68,24 @@
         <section id="usage">
             <h2>Usage Example</h2>
             <pre><code>// Example Instantiation
-Conv #(
-    .INW(18),
-    .R(9),
-    .C(8),
-    .MAXK(5),
-) u_conv_accelerator (
-    .clk(clk),
-    .reset(reset),
-    .INPUT_TDATA(),
-    .INPUT_TVALID(),
-    .INPUT_TUSER(),
-    .INPUT_TREADY(),
-    
-    .OUTPUT_TDATA(),
-    .OUTPUT_TVALID(),
-    .OUTPUT_TREADY()
-);</code></pre>
+                Conv #(
+                    .INW(18),
+                    .R(9),
+                    .C(8),
+                    .MAXK(5),
+                ) u_conv_accelerator (
+                    .clk(clk),
+                    .reset(reset),
+                    .INPUT_TDATA(),
+                    .INPUT_TVALID(),
+                    .INPUT_TUSER(),
+                    .INPUT_TREADY(),
+                    
+                    .OUTPUT_TDATA(),
+                    .OUTPUT_TVALID(),
+                    .OUTPUT_TREADY()
+                );
+            </code></pre>
 
             <div style="margin-top: 10px;">
                 <h3>Project Documentation</h3>

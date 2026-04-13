@@ -25,7 +25,7 @@
             
             <div class="hero-stat">
                 <div class="stat-item"><h3>128-bit</h3><p>SIMD Data Path</p></div>
-                <div class="stat-item"><h3>90</h3><p>Instructions</p></div>
+                <div class="stat-item"><h3>95</h3><p>Instructions</p></div>
                 <div class="stat-item"><h3>11-Stage</h3><p>Pipeline</p></div>
             </div>
         </section>
@@ -41,20 +41,20 @@
                 <li><strong>Local Store:</strong> 32KB high-speed local memory for instruction and data storage.</li>
                 <li><strong>Hazard Handling:</strong> Advanced hazard detection logic handles dual-instruction dependency checking and extensive operand forwarding networks minimize stalls.</li>
             </ul>
-            
             <figure>
-                <img src="assets/img/spu-block-diagram.png" alt="High-level block diagram of the SPU" class="small-diagram">
+                <img src="assets/img/structural_diag1.png" alt="Detailed SPU Pipeline Stages">
                 <figcaption>
-                    Figure 1: High-level block diagram of the SPU showing the Even/Odd pipes, Register File, and Local Store interface.
+                    Figure 1: Detailed view of the 11-stage pipeline, including instruction fetch, issue, execution units, and result forwarding paths.
+                </figcaption>
+            </figure>            
+            <figure>
+                <img src="assets/img/structural_diag2.png" alt="High-level block diagram of the SPU">
+                <figcaption>
+                    Figure 2: High-level block diagram of the SPU design thus far showing the Even/Odd pipes, Register File, and Local Store interface.
                 </figcaption>
             </figure>
 
-            <figure>
-                <img src="assets/img/spu-pipeline-diagram.png" alt="Detailed SPU Pipeline Stages" class="small-diagram">
-                <figcaption>
-                    Figure 2: Detailed view of the 11-stage pipeline, including instruction fetch, issue, execution units, and result forwarding paths.
-                </figcaption>
-            </figure>
+
         </section>
 
         <section id="tools">
@@ -69,7 +69,7 @@
 
             <div style="margin-top: 10px;">
                 <h3>Project Documentation</h3>
-                <p>For more details on the architecture, instruction set, and verification strategy, please refer to the full project report:</p>
+                <p>For more details on the architecture, instruction set, and verification strategy, please refer to the most updated project report:</p>
                 <a href="assets/docs/part2_report.pdf" class="download-btn" download>↓ Download Project Report (PDF)</a>
             </div>
         </section>
