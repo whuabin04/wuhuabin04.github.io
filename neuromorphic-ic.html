@@ -68,17 +68,13 @@
         <section id="overview">
             <h2>Project Overview</h2>
             <p>
-                This project involves the design and verification of <strong>ReRAM</strong>, a compute-in-memory (CIM) chip based on Resistive Random-Access Memory (RRAM). 
-                The architecture addresses the "memory wall" bottleneck in edge AI by performing computation directly within memory arrays, eliminating power-hungry data movement.
+                This project involves the design and verification of <strong>ReRAM</strong>, a compute-in-memory (CIM) chip based on Resistive Random-Access Memory inspired by the brain's neural network processing. 
+                The architecture addresses the "memory wall" bottleneck in edge AI by performing asynchronous computations directly within memory arrays on spike trains in replacement of high-precision activation values.
             </p>
         </section>
 
         <section id="architecture">
             <h2>1. Architecture: Transposable Neurosynaptic Array (TNSA)</h2>
-            <p>
-                Conventional RRAM-CIM architectures are often limited to fixed dataflow directions. To enable versatility for diverse AI models (CNNs, LSTMs, RBMs), 
-                we implemented a <strong>Transposable Neurosynaptic Array (TNSA)</strong>.
-            </p>
             <p>
                 The TNSA consists of 256x256 RRAM cells (768 CMOS Neurons and 196,608 ReRAM cells total).
             </p>
@@ -87,6 +83,20 @@
                 <img src="assets/img/neuromorphic-architecture.png" alt="Transposable Neurosynaptic Array (TNSA) Architecture showing interleaved RRAM and CMOS neurons">
                 <figcaption>
                     Figure 1: The Transposable Neurosynaptic Array (TNSA) architecture enabling forward, backward, and recurrent MVM dataflows.
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="assets/img/snn_architecture.jpg" alt="Transposable Neurosynaptic Array (TNSA) Architecture showing interleaved RRAM and CMOS neurons">
+                <figcaption>
+                    Figure 2: SNN Pipeline Architecture for Software Simulation.
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="assets/img/ezgif.com-crop.gif" alt="SNN Architecture Animation">
+                <figcaption>
+                    lol.
                 </figcaption>
             </figure>
         </section>
