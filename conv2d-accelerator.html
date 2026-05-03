@@ -66,26 +66,19 @@
         </section>
 
         <section id="usage">
-            <h2>Usage Example</h2>
-            <pre><code>// Example Instantiation
-                Conv #(
-                    .INW(18),
-                    .R(9),
-                    .C(8),
-                    .MAXK(5),
-                ) u_conv_accelerator (
-                    .clk(clk),
-                    .reset(reset),
-                    .INPUT_TDATA(),
-                    .INPUT_TVALID(),
-                    .INPUT_TUSER(),
-                    .INPUT_TREADY(),
-                    
-                    .OUTPUT_TDATA(),
-                    .OUTPUT_TVALID(),
-                    .OUTPUT_TREADY()
-                );
-            </code></pre>
+            <h2>Implementation & Results</h2>
+            <figure>
+                <img src="assets/img/phy_implementation_view.png" alt="Physical Implementation View" class="tall-diagram">
+                <figcaption>
+                    Figure 3: Physical Implementation View.
+                </figcaption>
+            </figure>
+            <figure>
+                <img src="assets/img/power_resource_util.png" alt="Power and Resource Utilization" class="tall-diagram">
+                <figcaption>
+                    Figure 4: Power and Resource Utilization Report.
+                </figcaption>
+            </figure>
 
             <div style="margin-top: 10px;">
                 <h3>Project Documentation</h3>
